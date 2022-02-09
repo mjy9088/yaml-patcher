@@ -1,5 +1,5 @@
 import { exit } from 'process';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 import yaml from 'js-yaml';
 import YamlPatcher from '../src/index.js';
 
@@ -9,7 +9,7 @@ interface Content extends Record<string, unknown> {
   tags?: string[];
 }
 
-(async function updateTest(): Promise<void> {
+async function updateTest(): Promise<void> {
   const old = (await readFile('test/before.yml')).toString();
   const expected = (await readFile('test/after.yml')).toString();
   const before = yaml.load(old) as Content;
@@ -26,4 +26,18 @@ interface Content extends Record<string, unknown> {
     console.error("Failed");
     exit(1);
   }
-})();
+}
+
+test('snapshot', async () => {
+  const before = yaml.load((await readFile('test/before.yml')).toString()) as Content;
+  const after = {
+    date: new Date().toISOString(),
+    ...before,
+    lastmod: '2022-02-09T12:34:56.789Z',
+    tags: ['before', ...(before.tags || []), 'after'],
+    newProperty: 'added',
+    custom: 'Modified ' + before.custom + '!',
+  };
+  expect(after).toMatchSnapshot();
+});
+

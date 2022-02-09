@@ -1,2 +1,6 @@
 package-lock.json
 node_modules
+coverage
+src/*.js
+src/*.js.map
+src/*.d.ts

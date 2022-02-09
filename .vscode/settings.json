@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "src/**/*.js": true,
+    "src/**/*.js.map": true,
     "src/**/*.d.ts": true
   },
   "files.associations": {
