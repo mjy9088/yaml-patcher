@@ -1,0 +1,12 @@
+# This is YAML
+---
+title: YAML Test
+slug: yaml-test
+# this is comment
+date: "2022-02-08T17:34:18.844Z"
+lastmod: "2022-02-09T10:08:20.682Z"
+tags:
+  - Hello
+  # more comment
+  - world!
+custom: test
