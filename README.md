@@ -1,6 +1,6 @@
 # yaml-patcher
 
-YAML patcher to keeps comments
+YAML patcher to keep comments
 
 [![NPM Version][npm-image]][npm-url]
 
@@ -28,11 +28,11 @@ import CONFIG_PATH from '@src/constants';
 import { readFile, writeFile } from '@src/utils';
 
 export async function updateConfig(configUpdateAction) {
-  const oldContent = await readFile(SETTINGS_PATH);
+  const oldContent = await readFile(CONFIG_PATH);
   const oldConfig = yaml.load(oldContent);
   const newConfig = configUpdateAction(oldConfig);
   const newContent = YamlPatcher(oldContent, newConfig);
-  await writeFile(SETTINGS_PATH, newContent);
+  await writeFile(CONFIG_PATH, newContent);
 }
 ```
 
