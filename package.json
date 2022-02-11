@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "yaml-patcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.js",
   "author": "Juyeong Maing <mjy9088@naver.com> (https://github.com/mjy9088)",
   "files": [

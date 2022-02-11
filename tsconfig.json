@@ -6,7 +6,8 @@
     "esModuleInterop": true,
     "downlevelIteration": true,
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "target": "es5"
   },
   "include": [
     "src"
